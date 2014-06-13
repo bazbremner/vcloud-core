@@ -6,7 +6,23 @@ module Vcloud
 
       before(:all) do
         config_file = File.join(File.dirname(__FILE__), "../vcloud_tools_testing_config.yaml")
-        test_data_obj = Vcloud::Tools::Tester::TestParameters.new(config_file)
+        test_data_obj = Vcloud::Tools::Tester::TestParameters.new(config_file, [])
+
+        test_data_obj.parse_config
+        network_config = Vcloud::Tools::Tester::TestFixtures::generate_fixture_config(test_data_obj.input_config)
+
+        fixtures = Vcloud::Tools::Tester::TestFixtures::ensure_vcloud_fixtures(network_config)
+
+        test_data_obj.extract_fixture_attributes(fixtures)
+        test_data_obj.define_attr_readers
+
+
+
+
+
+
+
+
 
         # create an array of test parameters so we can set new parameters such as network IDs
         @test_data = {}
