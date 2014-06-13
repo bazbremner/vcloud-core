@@ -7,3 +7,5 @@ if ENV['VCLOUD_TOOLS_DEV_FOG_MASTER']
 elsif ENV['VCLOUD_TOOLS_DEV_FOG_LOCAL']
   gem 'fog', :path => '../fog'
 end
+
+gem 'vcloud-tools-tester', :path => '../vcloud-tools-tester'
