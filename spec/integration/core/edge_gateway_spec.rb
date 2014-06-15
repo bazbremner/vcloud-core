@@ -51,9 +51,9 @@ module Vcloud
 
       context "get vCloud attributes for given gateway interface ID" do
         it "returns a provider network" do
-          network_interface = edge_gateway.vcloud_gateway_interface_by_id(@test_params.provider_network_id
+          network_interface = edge_gateway.vcloud_gateway_interface_by_id(@test_params.provider_network_id)
           expect(network_interface[:Network]).not_to be_nil
-          expect(network_interface[:Network][:href]).to include(@test_params.provider_network_id
+          expect(network_interface[:Network][:href]).to include(@test_params.provider_network_id)
         end
 
         it "returns an orgVdcNetwork" do
@@ -98,7 +98,7 @@ module Vcloud
       context "when retrieving vCloud attributes" do
         it "returns the correct edge gateway for a given ID" do
           vcloud_attributes = edge_gateway.vcloud_attributes
-          expect(vcloud_attributes[:href]).to include(@test_params.edge_gateway_id
+          expect(vcloud_attributes[:href]).to include(@test_params.edge_gateway_id)
         end
 
         it "returns the correct href for a given edge gateway" do
