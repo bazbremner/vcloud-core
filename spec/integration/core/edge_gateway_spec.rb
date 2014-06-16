@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 module Vcloud
   module Core
@@ -6,7 +7,8 @@ module Vcloud
 
       before(:all) do
         config_file = File.join(File.dirname(__FILE__), "../vcloud_tools_testing_config.yaml")
-        @test_params = Vcloud::Tools::Tester::TestHelper.new(config_file, []).params
+        @test_params = Vcloud::Tools::Tester::TestParameters::setup(config_file, [])
+        binding.pry
       end
 
       let(:edge_gateway) { EdgeGateway.get_by_name(@test_params.edge_gateway) }
